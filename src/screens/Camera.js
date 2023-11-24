@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef} from 'react';
 import {
     View,
     StyleSheet,
@@ -6,8 +6,7 @@ import {
     Platform,
     PermissionsAndroid,
 } from 'react-native';
-import { RNCamera, useCameraDevices, useCameraFormat } from 'react-native-vision-camera';
-import { useCameraPermission } from 'react-native-permissions';
+import { RNCamera, useCameraDevices} from 'react-native-vision-camera';
 // import { RNCamera } from 'react-native-camera';
 // import { useCamera } from 'react-native-camera-hooks';
 import CustomButton from '../utils/CustomButton';
@@ -51,11 +50,11 @@ export default function Camera({ navigation, route }) {
     const isFocused = useIsFocused()
     const appState = useAppState()
     const isActive = isFocused && appState === "active"
-    const format = useCameraFormat(device, [
-        { videoResolution: 'max' },
-        { photoResolution: 'max' }
-      ])
-    const fps = format.maxFps >= 240 ? 240 : format.maxFps
+    // const format = useCameraFormat(device, [
+    //     { videoResolution: 'max' },
+    //     { photoResolution: 'max' }
+    //   ])
+    // const fps = format.maxFps >= 240 ? 240 : format.maxFps
     const camera = useRef<Camera>(null)
 
     const captureHandle = async () => {
@@ -96,8 +95,8 @@ export default function Camera({ navigation, route }) {
       <RNCamera
         style={styles.preview}
         device={device}
-        format={format}
-        fps={fps}
+        // format={format}
+        // fps={fps}
         isActive={isActive}
         // isActive="true"
         ref={camera}
