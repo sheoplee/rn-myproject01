@@ -10,10 +10,12 @@ import Done from './screens/Done';
 import Task from './screens/Task';
 import Splash from './screens/Splash';
 // import Map from './screens/Map';
-import Camera from './screens/Camera';
+import Camera_f from './screens/Camera';
+// import QRCodeScanner from './screens/QRCodeScanner';
 import { Provider } from 'react-redux';
 import { Store } from './redux/store';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import CameraRN from './screens/CameraRN';
 
 const Tab = createBottomTabNavigator();
 
@@ -105,8 +107,12 @@ function App() {
           />
           <RootStack.Screen
             name="Camera"
-            component={Camera}
+            component={Camera_f}
           />
+          {/* <RootStack.Screen
+            name="QRCodeScanner"
+            component={QRCodeScanner}
+          /> */}
         </RootStack.Navigator>
       </NavigationContainer>
     </Provider>

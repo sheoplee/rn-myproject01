@@ -224,6 +224,7 @@ export default function Task({ navigation }) {
                     <TouchableOpacity
                         style={styles.extra_button}
                         onPress={() => { navigation.navigate('Camera', { id: taskID }) }}
+                        // onPress={() => { navigation.navigate('QRCodeScanner', { id: taskID }) }}
                     >
                         <FontAwesome5
                             name={'camera'}
